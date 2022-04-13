@@ -33,3 +33,6 @@ The eigenstructure assignment algorithm (which is contained in the "assign" func
         K, E, V = assign(A, B, des_poles, des_V, list_of_D)
     
 K will be the assigned gain matrix, with E and V as the achieved eigenvalues and eigenvectors.
+
+## Implementation in the MAV Project
+In chap6/autopilot_eig there is an AutoPilotEig class which uses either regular pole placement or eigenstructure assignment. It has the same inputs as the regular AutoPilot class, but with an additinal input to the Autopilot.update() function, type='eigen', which controls whether or not eigenstructure assignment gains are used. Gains are controlled in the __init__ function, where the desired poles, eigenvectors, and D matrices can be edited.
